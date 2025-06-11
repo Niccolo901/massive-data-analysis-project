@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load dataset
-df = pd.read_csv('dataset/books_data.csv')
+df = pd.read_csv('../dataset/books_data.csv')
 
 # Identify the top 3 categories
 top_categories = df['categories'].value_counts().nlargest(3).index.tolist()

@@ -56,7 +56,7 @@ def train_model(model, train_data, val_data, epochs=20, batch_size=32):
                   metrics=['accuracy'])
     cb = [
         callbacks.EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True),
-        callbacks.ModelCheckpoint('best_model.keras', save_best_only=True, monitor='val_loss')
+        callbacks.ModelCheckpoint('../best_model.keras', save_best_only=True, monitor='val_loss')
     ]
     history = model.fit(train_data,
                         validation_data=val_data,

@@ -118,10 +118,10 @@ def mapreduce_process(csv_path, output_dir, output_file, chunk_size=1000, max_im
 
 # Entry point
 def run_download():
-    csv_path = 'dataset/books_subdata.csv'  #Subset of books data
-    output_dir = 'book_covers'
-    intermediate_file = 'books_with_covers.csv'
-    final_output_file = 'books_with_covers_optimized.csv'
+    csv_path = '../dataset/books_subdata.csv'  #Subset of books data
+    output_dir = '../book_covers'
+    intermediate_file = '../books_with_covers.csv'
+    final_output_file = '../books_with_covers_optimized.csv'
 
     mapreduce_process(csv_path, output_dir, intermediate_file)
     enrich_with_labels(intermediate_file, final_output_file)
@@ -166,7 +166,7 @@ def create_dataset(csv_path, batch_size, augment=False, max_images=None):
 
 
 def run_preprocessing():
-    csv_path = 'books_with_covers_optimized.csv'
+    csv_path = '../books_with_covers_optimized.csv'
     batch_size = 64  # Adjust batch size based on available memory
     max_images = 1000  # Limit the number of images to process
 
