@@ -1,6 +1,6 @@
 import pandas as pd
 
-def create_books_subdata(input_csv_path='../dataset/books_data.csv',
+def create_books_subdata(input_csv_path='dataset/books_data.csv',
                          output_csv_path='dataset/books_subdata.csv',
                          n_samples_per_category=333,
                          top_k=3,
