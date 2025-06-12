@@ -1,1 +1,1 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Niccolo901/massive-data-analysis-project/blob/main/Book_Classification_Project.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Niccolo901/massive-data-analysis-project/blob/master/Book_Classification_Project.ipynb)
