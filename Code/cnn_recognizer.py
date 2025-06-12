@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.keras import layers, models, callbacks
 from tensorflow.keras.applications import MobileNetV2
 import matplotlib.pyplot as plt
-from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
 
 def create_cnn(input_shape=(224, 224, 3), num_classes=10, conv_filters=[32, 64, 128], dense_units=128, dropout_rate=0.3):
     model = models.Sequential()
@@ -83,7 +83,7 @@ def plot_training_history(history):
     plt.title('Loss over Epochs')
     plt.show()
 
-def evaluate_model(model, test_data, test_labels=None):
+def evaluate_model(model, test_data, test_labels=None, class_names=None):
     results = model.evaluate(test_data, return_dict=True)
     for k, v in results.items():
         print(f"{k}: {v:.4f}")
@@ -91,4 +91,13 @@ def evaluate_model(model, test_data, test_labels=None):
         preds = model.predict(test_data)
         y_pred = preds.argmax(axis=1)
         print(classification_report(test_labels, y_pred))
+
+        # Confusion matrix
+        cm = confusion_matrix(test_labels, y_pred)
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=class_names)
+        disp.plot(xticks_rotation=45, cmap='Blues')
+        plt.title("Confusion Matrix")
+        plt.tight_layout()
+        plt.show()
+
     return results
